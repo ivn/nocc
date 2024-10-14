@@ -85,7 +85,7 @@ func (listener *DaemonUnixSockListener) EnterInfiniteLoopUntilQuit(daemon *Daemo
 // "{ExitCode}\0{Stdout}\0{Stderr}\0"
 // See nocc.cpp, write_request_to_go_daemon() and read_response_from_go_daemon()
 func (listener *DaemonUnixSockListener) onRequest(conn net.Conn, daemon *Daemon) {
-	slice, err := bufio.NewReaderSize(conn,1024*32).ReadSlice(0)
+	slice, err := bufio.NewReaderSize(conn,1024*64).ReadSlice(0)
 	if err != nil {
 		if err != io.EOF { // if launched `nocc start {cxx_name}`, and the daemon was already running — nothing is sent actually
 			logClient.Error("couldn't read from socket", err)
