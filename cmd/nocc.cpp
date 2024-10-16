@@ -31,7 +31,7 @@ const char *NOCC_GO_EXECUTABLE;             // env var
 int ARGC;
 char **ARGV;
 
-const int BUF_PIPE_LEN = 1024*64;
+const int BUF_PIPE_LEN = 1024*128;
 char BUF_PIPE[BUF_PIPE_LEN]; // a single buffer for in/out communication with nocc-daemon
 
 struct GoDaemonResponse {
